@@ -22,6 +22,11 @@ export class CoursesController {
     return this.coursesService.findOne(id);
   }
 
+  @Get(':id/students')
+  findStudentsByCourse(@Param('id', ParseUUIDPipe) id: string) {
+    return this.coursesService.findStudentsByCourseId(id);
+  }
+
   @Patch(':id')
   update(@Param('id', ParseUUIDPipe) id: string, @Body() updateCourseDto: UpdateCourseDto) {
     return this.coursesService.update(id, updateCourseDto);
